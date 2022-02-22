@@ -19,6 +19,11 @@ class RecipesController < ApplicationController
   def edit
   end
 
+  def public_recipes
+    @all_recipes = Recipe.all
+    # @public_recipes = @all_recipes.Name
+  end
+
   # POST /recipes or /recipes.json
   def create
     @recipe = Recipe.new(recipe_params)

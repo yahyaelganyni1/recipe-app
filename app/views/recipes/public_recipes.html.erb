@@ -1,0 +1,14 @@
+<h2>  hello form the public recipe page </h2>
+
+<div id="recipes">
+  <% @all_recipes.each do |recipe| %>
+    <% if recipe.public %>
+        <%= render recipe %>
+        <p>
+        </p>
+    <% else %> 
+        <h1> thier is no recipes </h1>
+    <% end %>
+
+  <% end %>
+</div>
