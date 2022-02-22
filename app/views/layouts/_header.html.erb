@@ -9,11 +9,13 @@
     <div class="collapse navbar-collapse" >
         <ul class="navbar-nav">
         <li class="nav-item active">
-        <%-link_to 'my recipes', recipes_path, class_name: %>
-            <a class="nav-link" ><%=link_to 'recipes', recipes_path%></a>
+            <a class="nav-link" ><%=link_to 'my recipes', recipes_path%></a>
         </li>
         <li class="nav-item">
             <a class="nav-link"><%=link_to 'food', root_path%></a>
+        </li>
+        <li class="nav-item active">
+            <a class="nav-link" ><%=link_to 'public recipes', public_recipes_path%></a>
         </li>
        <li class="nav-item">
 <%= link_to "Sign out", destroy_user_session_path,  data: {
