@@ -9,18 +9,18 @@
     <div class="collapse navbar-collapse" >
         <ul class="navbar-nav">
         <li class="nav-item active">
-            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        <%-link_to 'recipes', recipes_path, class_name: %>
+            <a class="nav-link" ><%=link_to 'recipes', recipes_path%></a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#">Features</a>
+            <a class="nav-link"><%=link_to 'food', root_path%></a>
         </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">Pricing</a>
-        </li>
-        </ul>
-                <%= link_to "Sign out", destroy_user_session_path,  data: {
+       <li class="nav-item">
+<%= link_to "Sign out", destroy_user_session_path,  data: {
                         turbo_method: :delete
-                    } %>
+                    } %></li>
+      
+        </ul>
     </div>
     </nav>
 
