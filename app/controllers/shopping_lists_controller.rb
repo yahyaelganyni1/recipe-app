@@ -4,6 +4,9 @@ class ShoppingListsController < ApplicationController
   # GET /shopping_lists or /shopping_lists.json
   def index
     @shopping_lists = ShoppingList.all
+    @items_count = @shopping_lists.select('id').distinct.count
+    @total_amount = @shopping_lists.sum('price')
+
   end
 
   # GET /shopping_lists/1 or /shopping_lists/1.json
