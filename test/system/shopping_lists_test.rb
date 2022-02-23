@@ -17,6 +17,7 @@ class ShoppingListsTest < ApplicationSystemTestCase
     fill_in "Food", with: @shopping_list.food
     fill_in "Price", with: @shopping_list.price
     fill_in "Quantity", with: @shopping_list.quantity
+    fill_in "User", with: @shopping_list.user_id
     click_on "Create Shopping list"
 
     assert_text "Shopping list was successfully created"
@@ -30,6 +31,7 @@ class ShoppingListsTest < ApplicationSystemTestCase
     fill_in "Food", with: @shopping_list.food
     fill_in "Price", with: @shopping_list.price
     fill_in "Quantity", with: @shopping_list.quantity
+    fill_in "User", with: @shopping_list.user_id
     click_on "Update Shopping list"
 
     assert_text "Shopping list was successfully updated"

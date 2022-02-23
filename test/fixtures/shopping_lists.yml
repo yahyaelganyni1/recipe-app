@@ -4,8 +4,10 @@ one:
   food: MyString
   quantity: 1
   price: 1
+  user: one
 
 two:
   food: MyString
   quantity: 1
   price: 1
+  user: two
