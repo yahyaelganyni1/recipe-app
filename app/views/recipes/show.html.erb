@@ -10,3 +10,15 @@
 
   <%= button_to "Destroy this recipe", @recipe, method: :delete %>
 </div>
+
+
+<% if can? :manage, @recipe %>
+
+<%= form_with(model: @recipe) do |form| %>
+  <div>
+    <%= form.label :public, style: "display: block" %>
+    <%= form.check_box :public, onchange: "this.form.submit();"%>
+  </div>
+
+<% end %>
+<%end%>
