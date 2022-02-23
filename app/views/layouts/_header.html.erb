@@ -6,8 +6,8 @@
     <%= link_to 'Recipe App', root_url, class_name: "navbar-brand"%>
 
     
-    <div class="collapse navbar-collapse" >
-        <ul class="navbar-nav">
+    <div class="collapse navbar-collapse " >
+        <ul class="navbar-nav navbar1">
         <li class="nav-item active">
             <a class="nav-link" ><%=link_to 'my recipes', recipes_path%></a>
         </li>
@@ -17,10 +17,13 @@
         <li class="nav-item active">
             <a class="nav-link" ><%=link_to 'public recipes', public_recipes_path%></a>
         </li>
+               <li class="nav-item active">
+            <a class="nav-link" ><%=link_to 'shopping list',  shopping_lists_path%></a>
+        </li>
        <li class="nav-item">
 <%= link_to "Sign out", destroy_user_session_path,  data: {
                         turbo_method: :delete
-                    } %></li>
+                    }, class_name: 'nav-item' %></li>
       
         </ul>
     </div>

@@ -16,3 +16,11 @@
 ul {
   list-style: none;
 }
+
+a:link {
+  text-decoration: none;
+}
+
+.navbar1 li {
+  margin-left: 2em;
+}
