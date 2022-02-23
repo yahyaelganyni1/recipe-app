@@ -1,14 +1,17 @@
-<h2>  hello form the public recipe page </h2>
+<h2>public recipes</h2>
 
-<div id="recipes">
-  <% @all_recipes.each do |recipe| %>
+
+<% @all_recipes.each do |recipe| %>
     <% if recipe.public %>
-        <%= render recipe %>
-        <p>
-        </p>
-    <% else %> 
-        <h1> thier is no recipes </h1>
-    <% end %>
+      <div class="card w-75">
+        <div class="card-body m-3 ">
+          <%= render recipe %>
+          <h4> total food:</h4>
+          <h4> total price:</h4>
+   
+          <h4>By: <%= User.find(recipe.user_id).name %></h4>
 
+        </div>
+    </div>
   <% end %>
-</div>
+<% end %>

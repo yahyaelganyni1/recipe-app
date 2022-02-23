@@ -1,15 +1,16 @@
 <p style="color: green"><%= notice %></p>
 
 <h1>Recipes</h1>
-<div id="recipes">
-  <% @recipes.each do |recipe| %>
+<%= link_to "New recipe", new_recipe_path %>
+
+ <% @recipes.each do |recipe| %>
 <% if can? :manage, recipe %>
+<div class="card w-75">
+  <div class="card-body m-3 ">
     <%= render recipe %>
-    <p>
-      <%= link_to "Show this recipe", recipe %>
-    </p>
+ <%= button_to "Delete", recipe, method: :delete, class_name: "btn btn-primary"%>
+
+  </div>
+</div>
 <% end %>
   <% end %>
-</div>
-
-<%= link_to "New recipe", new_recipe_path %>

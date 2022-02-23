@@ -1,33 +1,12 @@
 <div id="<%= dom_id recipe %>">
-  <p>
+   <h5 class="card-title">
     <%= link_to recipe.name, recipe %>
-  </p>
+  </h5>
 
-  <p>
-    <strong>Preparation time:</strong>
-    <%= recipe.preparation_time %>
-  </p>
 
-  <p>
-    <strong>Cooking time:</strong>
-    <%= recipe.cooking_time %>
-  </p>
-
-  <p>
-    <strong>Description:</strong>
+  <p class="card-text float-end">
     <%= recipe.description %>
   </p>
 
-  <p>
-    <strong>Public:</strong>
-    <%= recipe.public %>
-  </p>
-
-  <p>
-    <strong>User:</strong>
-    <%= User.find(recipe.user_id).name %>
-    <%= @user_name %>
-
-  </p>
-
 </div>
+

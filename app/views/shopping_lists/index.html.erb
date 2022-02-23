@@ -2,12 +2,23 @@
 
 <h1>Shopping lists</h1>
 
-<div id="shopping_lists">
-  <% @shopping_lists.each do |shopping_list| %>
-    <%= render shopping_list %>
-    <p>
-      <%= link_to "Show this shopping list", shopping_list %>
-    </p>
-  <% end %>
-</div>
 
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">food</th>
+      <th scope="col">quantity </th>
+      <th scope="col">price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @shopping_lists.each do |shopping_list| %>
+      <td>
+        <%= render shopping_list %>
+      </td>
+    <% end %>
+    
+    </tr>
+   
+  </tbody>
+</table>

@@ -11,9 +11,13 @@
     </tr>
   </thead>
   <tbody>
-    <tr>
   <% @foods.each do |food| %>
-        <td><%= render food %></td>
+        <%= render food %> 
+    <td>
+
+      <%= button_to "Destroy", food, method: :delete %>
+    </td>
+
   <% end %>
     
     </tr>
