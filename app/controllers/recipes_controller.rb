@@ -9,6 +9,10 @@ class RecipesController < ApplicationController
 
   # GET /recipes/1 or /recipes/1.json
   def show
+    @shopping_lists = ShoppingList.all
+    @items_count = @shopping_lists.select('id').distinct.count
+    @total_amount = @shopping_lists.sum('price')
+
   end
 
   # GET /recipes/new

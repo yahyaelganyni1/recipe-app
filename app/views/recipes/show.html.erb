@@ -5,10 +5,11 @@
 <%= render @recipe %>
 
 <div>
-  <%= link_to "Edit this recipe", edit_recipe_path(@recipe) %> |
   <%= link_to "Back to recipes", recipes_path %>
+<% if can? :manage, @recipe %>
 
-  <%= button_to "Destroy this recipe", @recipe, method: :delete %>
+  <%= button_to "Delete", @recipe, method: :delete %>
+  <%end%>
 </div>
 
 
@@ -22,3 +23,25 @@
 
 <% end %>
 <%end%>
+
+
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">food</th>
+      <th scope="col">quantity </th>
+      <th scope="col">price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @shopping_lists.each do |shopping_list| %>
+      <td>
+        <%= render shopping_list %>
+      </td>
+    <% end %>
+    
+    </tr>
+   
+  </tbody>
+</table>
