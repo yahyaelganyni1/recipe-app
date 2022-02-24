@@ -1,31 +1,14 @@
-  
 <%if user_signed_in?%>
-  
-    <nav class="navbar navbar-expand-lg navbar-dark bg-light">
-
-    <%= link_to 'Recipe App', root_url, class_name: "navbar-brand"%>
-
-    
-    <div class="collapse navbar-collapse" >
-        <ul class="navbar-nav">
-        <li class="nav-item active">
-        <%-link_to 'recipes', recipes_path, class_name: %>
-            <a class="nav-link" ><%=link_to 'recipes', recipes_path%></a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link"><%=link_to 'food', root_path%></a>
-        </li>
-       <li class="nav-item">
-<%= link_to "Sign out", destroy_user_session_path,  data: {
-                        turbo_method: :delete
-                    } %></li>
-      
+    <header class="navbar navbar-fixed-top navbar-inverse">
+    <div class="container">
+        <%= link_to "Recipe App", root_path, id: "logo" %>
+        <nav>
+        <ul class="nav navbar-nav navbar-right">
+            <li><%= link_to 'food', root_path %></li>
+            <li><%= link_to 'recipes', recipes_path %></li>
+            <li><%= link_to "Sign Out", destroy_user_session_path, data: {turbo_method: :delete} %></li>
         </ul>
+        </nav>
     </div>
-    <h3>
-    hello <span> <%= current_user.name%> </span>
-
-    </h3>
-    </nav>
-
+    </header>
 <%end%>
