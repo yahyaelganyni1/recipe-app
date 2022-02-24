@@ -1,22 +1,24 @@
 <%= link_to "New food", new_food_path %>
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col">food</th>
-      <th scope="col">measurement units</th>
-      <th scope="col">unit price</th>
-      <th scope="col">Action</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @foods.each do |food| %>
+<div class="table-wrapper">
+  <table class="fl-table">
+    <thead>
       <tr>
-        <%= render food %>
-        <td>
-          <%= button_to "Destroy", food, method: :delete %>
-        </td>
+        <th scope="col">food</th>
+        <th scope="col">measurement units</th>
+        <th scope="col">unit price</th>
+        <th scope="col">Action</th>
       </tr>
-    <% end %>
-  </tr>
-</tbody>
+    </thead>
+    <tbody>
+      <% @foods.each do |food| %>
+        <tr>
+          <%= render food %>
+          <td>
+            <%= button_to "Destroy", food, method: :delete %>
+          </td>
+        </tr>
+      <% end %>
+    </tr>
+  </tbody>
 </table>
+</div>

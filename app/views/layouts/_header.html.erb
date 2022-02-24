@@ -8,8 +8,8 @@
     <%= link_to "Sign out", destroy_user_session_path,  data: {
                             turbo_method: :delete
                         }, class_name: 'nav-item' %>
-    <h3 class='nav-username'>
+    <h4 class='nav-username'>
       Hi <span> <%= current_user.name%> </span>
-    </h3>
+    </h4>
   </div>
 <%end%>

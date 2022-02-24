@@ -2,20 +2,22 @@
 <h1>Shopping lists</h1>
 <h4> amount of item to by: <%= @items_count%></h4>
 <h4> Total value of food needed: <%= @total_amount%>$</h4>
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col">food</th>
-      <th scope="col">quantity </th>
-      <th scope="col">price</th>
+<div class="table-wrapper">
+  <table class="fl-table">
+    <thead>
+      <tr>
+        <th scope="col">food</th>
+        <th scope="col">quantity </th>
+        <th scope="col">price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @shopping_lists.each do |shopping_list| %>
+        <td>
+          <%= render shopping_list %>
+        </td>
+      <% end %>
     </tr>
-  </thead>
-  <tbody>
-    <% @shopping_lists.each do |shopping_list| %>
-      <td>
-        <%= render shopping_list %>
-      </td>
-    <% end %>
-  </tr>
-</tbody>
+  </tbody>
 </table>
+</div>
