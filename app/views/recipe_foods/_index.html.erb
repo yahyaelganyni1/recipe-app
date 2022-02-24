@@ -9,7 +9,7 @@
       </tr>
     </thead>
     <tbody>
-      <% recipe_foods.each do |recipe_food| %>
+      <% @recipe_foods.each do |recipe_food| %>
         <tr>
           <th><%= recipe_food.food.name %></th>
           <td><%= pluralize(recipe_food.quantity, recipe_food.food.measurement_unit) %></td>
