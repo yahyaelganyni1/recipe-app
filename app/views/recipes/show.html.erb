@@ -14,4 +14,28 @@
       <%= form.check_box :public, onchange: "this.form.submit();"%>
     </div>
   <% end %>
+  <%= link_to "New food", new_food_path %>
+  <div class="table-wrapper">
+    <table class="fl-table">
+      <thead>
+        <tr>
+          <th scope="col">food</th>
+          <th scope="col">measurement units</th>
+          <th scope="col">unit price</th>
+          <th scope="col">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @recipes.each do |food| %>
+          <tr>
+            <%= render food %>
+            <td>
+              <%= button_to "Destroy", food, method: :delete %>
+            </td>
+          </tr>
+        <% end %>
+      </tr>
+    </tbody>
+  </table>
+</div>
 <%end%>

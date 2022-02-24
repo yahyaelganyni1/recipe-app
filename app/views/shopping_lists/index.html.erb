@@ -13,9 +13,11 @@
     </thead>
     <tbody>
       <% @shopping_lists.each do |shopping_list| %>
-        <td>
-          <%= render shopping_list %>
-        </td>
+        <% if can? :read, shopping_list %>
+          <td>
+            <%= render shopping_list %>
+          </td>
+        <%end%>
       <% end %>
     </tr>
   </tbody>
