@@ -19,13 +19,13 @@ class RecipesController < ApplicationController
   def edit
   end
 
-  # POST /recipes or /recipes.json
+  # POST /recipes or /recipes.jso:name =>  your_custom_name
   def create
     @recipe = Recipe.new(recipe_params)
 
     respond_to do |format|
       if @recipe.save
-        format.html { redirect_to recipe_url(@recipe), notice: "Recipe was successfully created." }
+        format.html { redirect_to recipes_path, notice: "Recipe was successfully created." }
         format.json { render :show, status: :created, location: @recipe }
       else
         format.html { render :new, status: :unprocessable_entity }
