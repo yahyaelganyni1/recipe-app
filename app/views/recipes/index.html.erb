@@ -1,16 +1,13 @@
 <p style="color: green"><%= notice %></p>
-
 <h1>Recipes</h1>
 <%= link_to "New recipe", new_recipe_path %>
-
- <% @recipes.each do |recipe| %>
-<% if can? :manage, recipe %>
-<div class="card w-75">
-  <div class="card-body m-3 ">
-    <%= render recipe %>
- <%= button_to "Delete", recipe, method: :delete, class_name: "btn btn-primary"%>
-
-  </div>
-</div>
-<% end %>
+<% @recipes.each do |recipe| %>
+  <% if can? :manage, recipe %>
+    <div class="card w-75">
+      <div class="card-body m-3 ">
+        <%= render recipe %>
+        <%= button_to "Delete", recipe, method: :delete, class_name: "btn btn-primary"%>
+      </div>
+    </div>
   <% end %>
+<% end %>

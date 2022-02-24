@@ -1,5 +1,4 @@
 <%= link_to "New food", new_food_path %>
-
 <table class="table">
   <thead>
     <tr>
@@ -7,21 +6,17 @@
       <th scope="col">measurement units</th>
       <th scope="col">unit price</th>
       <th scope="col">Action</th>
-
     </tr>
   </thead>
   <tbody>
-  <% @foods.each do |food| %>
-        <tr>
-        <%= render food %> 
-    <td>
-
-      <%= button_to "Destroy", food, method: :delete %>
-    </td>
-</tr>
-  <% end %>
-    
-    </tr>
-   
-  </tbody>
+    <% @foods.each do |food| %>
+      <tr>
+        <%= render food %>
+        <td>
+          <%= button_to "Destroy", food, method: :delete %>
+        </td>
+      </tr>
+    <% end %>
+  </tr>
+</tbody>
 </table>

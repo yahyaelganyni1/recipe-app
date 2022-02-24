@@ -1,47 +1,17 @@
 <p style="color: green"><%= notice %></p>
 <%= link_to "Generate shopping list", new_shopping_list_path %>
-
-
 <%= render @recipe %>
-
 <div>
   <%= link_to "Back to recipes", recipes_path %>
-<% if can? :manage, @recipe %>
-
-  <%= button_to "Delete", @recipe, method: :delete %>
+  <% if can? :manage, @recipe %>
+    <%= button_to "Delete", @recipe, method: :delete %>
   <%end%>
 </div>
-
-
 <% if can? :manage, @recipe %>
-
-<%= form_with(model: @recipe) do |form| %>
-  <div>
-    <%= form.label :public, style: "display: block" %>
-    <%= form.check_box :public, onchange: "this.form.submit();"%>
-  </div>
-
-<% end %>
+  <%= form_with(model: @recipe) do |form| %>
+    <div>
+      <%= form.label :public, style: "display: block" %>
+      <%= form.check_box :public, onchange: "this.form.submit();"%>
+    </div>
+  <% end %>
 <%end%>
-
-
-
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col">food</th>
-      <th scope="col">quantity </th>
-      <th scope="col">price</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @shopping_lists.each do |shopping_list| %>
-      <td>
-        <%= render shopping_list %>
-      </td>
-    <% end %>
-    
-    </tr>
-   
-  </tbody>
-</table>

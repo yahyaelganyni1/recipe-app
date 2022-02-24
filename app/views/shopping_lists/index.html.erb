@@ -1,10 +1,7 @@
 <p style="color: green"><%= notice %></p>
-
 <h1>Shopping lists</h1>
 <h4> amount of item to by: <%= @items_count%></h4>
 <h4> Total value of food needed: <%= @total_amount%>$</h4>
-
-
 <table class="table">
   <thead>
     <tr>
@@ -19,8 +16,6 @@
         <%= render shopping_list %>
       </td>
     <% end %>
-    
-    </tr>
-   
-  </tbody>
+  </tr>
+</tbody>
 </table>
