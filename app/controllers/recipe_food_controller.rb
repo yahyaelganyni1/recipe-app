@@ -16,6 +16,17 @@ class RecipeFoodController < ApplicationController
     end
   end
 
+  def edit
+  end
+
+  def update
+    @recipe_food.update(params)
+    respond_to do |format|
+      format.html { redirect_to recipe_path(params[:recipe_id]), notice: 'Recipe food was successfully updated.' }
+    end
+  end
+
+
   private
 
   def set_recipe_food
