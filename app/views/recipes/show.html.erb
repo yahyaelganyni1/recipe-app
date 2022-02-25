@@ -1,24 +1,26 @@
 <p style="color: green"><%= notice %></p>
-<div class="">
-  <%= link_to "Generate shopping list", new_shopping_list_path %>
-  <%= link_to "Add ingredint", "#{@recipe.id}/recipe_food/new" %>
-</div>
 <%= render @recipe %>
 <% @recipe.foods.each do |food|%>
   <h1> <%= food.name%> </h1>
   <h1> <%= food.recipe_foods.find_by(recipe_id: @recipe.id).quantity%> </h1>
+  <h1> <%= food.price%> </h1>
+  <%= button_to "Remove ingredient", recipe_recipe_food_path(recipe_id: @recipe.id, id: food.recipe_foods.find_by(recipe_id: @recipe.id).id), method: :delete , class:"btn btn-success"%>
 <%end%>
 <div>
-  <%= link_to "Back to recipes", recipes_path %>
+  <%= link_to "Back to recipes", recipes_path, class:"btn btn-info m-2" %>
   <% if can? :manage, @recipe %>
-    <%= button_to "Delete", @recipe, method: :delete %>
+    <%= button_to "Delete", @recipe, method: :delete, class:"btn btn-danger" %>
   <%end%>
 </div>
 <% if can? :manage, @recipe %>
   <%= form_with(model: @recipe) do |form| %>
-    <div>
-      <%= form.label :public, style: "display: block" %>
-      <%= form.check_box :public, onchange: "this.form.submit();"%>
+    <div class="custom-control custom-switch">
+      <%= form.label :public, style: "display: block", class:"custom-control-label", for:"customSwitch1"%>
+      <%= form.check_box :public, onchange: "this.form.submit();", class:"input p-1 custom-control-input" %>
     </div>
   <% end %>
 <%end%>
+<div class="flex justify-content-between">
+  <%= link_to "Generate shopping list", new_shopping_list_path,  class:"btn btn-success m-2"%>
+  <%= link_to "Add ingredint", "#{@recipe.id}/recipe_food/new",  class:"btn btn-success m-2"%>
+</div>

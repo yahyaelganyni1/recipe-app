@@ -27,7 +27,7 @@
   </div>
   <div>
     <%= form.label :public, style: "display: block" %>
-    <%= form.check_box :public %>
+    <%= form.check_box :public,  class:"input p-1 custom-control-input" %>
   </div>
   <%= form.hidden_field :user_id, value: current_user.id %>
   <div>
