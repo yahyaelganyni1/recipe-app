@@ -1,7 +1,7 @@
   <%= link_to "Back to recipes", recipes_path, class:"btn btn-info m-2" %>
 <p style="color: green"><%= notice %></p>
-<%= render @recipe %>
-<div>
+<div class="card">
+  <%= render @recipe %>
   <% if can? :manage, @recipe %>
     <%= button_to "Delete", @recipe, method: :delete, class:"btn btn-danger" %>
   <%end%>
@@ -9,22 +9,27 @@
 <% if can? :manage, @recipe %>
   <%= form_with(model: @recipe) do |form| %>
     <div class="custom-control custom-switch">
-      <%= form.check_box :public, onchange: "this.form.submit();" %>
+      <h4>chick the public box</h4>
+      <%= form.check_box :public, onchange: "this.form.submit();", class: "custom-control-inputcustom-control-input", id:"flexSwitchCheckDefault"  %>
     </div>
   <% end %>
 <%end%>
-<div class="flex justify-content-between">
-  <%= link_to "Generate shopping list", new_shopping_list_path,  class:"btn btn-success m-2"%>
-  <%= link_to "Add ingredint", "#{@recipe.id}/recipe_food/new",  class:"btn btn-success m-2"%>
-</div>
 <div class="table-wrapper">
+  <div class="flex justify-content-between">
+    <% if can? :manage, @recipe %>
+      <%= link_to "Generate shopping list", new_shopping_list_path,  class:"btn btn-success m-2 btn-sm"%>
+      <%= link_to "Add ingredint", "#{@recipe.id}/recipe_food/new",  class:"btn btn-success m-2 btn-sm"%>
+    <%end%>
+  </div>
   <table class="fl-table">
     <thead>
       <tr>
         <th scope="col">food</th>
         <th scope="col">quantity </th>
         <th scope="col">price</th>
-        <th scope="col">Action</th>
+        <% if can? :manage, @recipe %>
+          <th scope="col">Action</th>
+        <%end%>
       </tr>
     </thead>
     <tbody>
@@ -33,8 +38,11 @@
           <th> <%= food.name%> </th>
           <th> <%= food.recipe_foods.find_by(recipe_id: @recipe.id).quantity%> </th>
           <th> <%= food.price%> $</th>
-          <th> <%= button_to "Remove", recipe_recipe_food_path(recipe_id: @recipe.id, id: food.recipe_foods.find_by(recipe_id: @recipe.id).id), method: :delete , class:"btn btn-success"%></th>
-          <th> <%= link_to "Edit", edit_recipe_recipe_food_path(@recipe, food), class:"btn btn-success"%></th>
+          <th>
+            <% if can? :manage, @recipe %>
+              <%= button_to "Remove", recipe_recipe_food_path(recipe_id: @recipe.id, id: food.recipe_foods.find_by(recipe_id: @recipe.id).id), method: :delete , class:"btn btn-success btn-sm"%>
+              <%= link_to "Edit", edit_recipe_recipe_food_path(recipe_id: @recipe.id, id:food.id), class:"btn btn-success btn-sm"%></th>
+          <%end%>
         </tr>
       <%end%>
     </tbody>

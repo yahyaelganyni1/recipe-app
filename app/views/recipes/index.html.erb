@@ -3,11 +3,9 @@
 <%= link_to "New recipe", new_recipe_path , class:"btn btn-success m-2"%>
 <% @recipes.each do |recipe| %>
   <% if can? :manage, recipe %>
-    <div class="card w-75">
-      <div class="card-body m-3 ">
-        <%= render recipe %>
-        <%= button_to "Delete", recipe, method: :delete, class: "btn btn-danger"%>
-      </div>
+    <div class="card">
+      <%= render recipe %>
+      <%= button_to "Delete", recipe, method: :delete, class: "btn btn-danger"%>
     </div>
   <% end %>
 <% end %>
