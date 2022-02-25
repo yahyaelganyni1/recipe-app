@@ -1,6 +1,13 @@
 <p style="color: green"><%= notice %></p>
-<%= link_to "Generate shopping list", new_shopping_list_path %>
+<div class="">
+  <%= link_to "Generate shopping list", new_shopping_list_path %>
+  <%= link_to "Add ingredint", "#{@recipe.id}/recipe_food/new" %>
+</div>
 <%= render @recipe %>
+<% @recipe.foods.each do |food|%>
+  <h1> <%= food.name%> </h1>
+  <h1> <%= food.recipe_foods.find_by(recipe_id: @recipe.id).quantity%> </h1>
+<%end%>
 <div>
   <%= link_to "Back to recipes", recipes_path %>
   <% if can? :manage, @recipe %>
@@ -14,5 +21,4 @@
       <%= form.check_box :public, onchange: "this.form.submit();"%>
     </div>
   <% end %>
-  <%= render partial: "recipe_foods/index"%>
 <%end%>
