@@ -15,8 +15,7 @@
 <% if can? :manage, @recipe %>
   <%= form_with(model: @recipe) do |form| %>
     <div class="custom-control custom-switch">
-      <%= form.label :public, style: "display: block", class:"custom-control-label", for:"customSwitch1"%>
-      <%= form.check_box :public, onchange: "this.form.submit();", class:"input p-1 custom-control-input" %>
+      <%= form.check_box :public, onchange: "this.form.submit();" %>
     </div>
   <% end %>
 <%end%>
