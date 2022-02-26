@@ -3,10 +3,10 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.0.2'
 
-gem 'bullet'
 gem 'bootsnap', require: false
 gem 'bootstrap', '~> 4.3.1'
 gem 'bootstrap-sass'
+gem 'bullet'
 gem 'cancancan'
 gem 'importmap-rails'
 gem 'jbuilder'
