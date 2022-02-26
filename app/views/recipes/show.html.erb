@@ -1,24 +1,21 @@
-  <%= link_to "Back to recipes", recipes_path, class:"btn btn-info m-2" %>
-<p style="color: green"><%= notice %></p>
-<div class="card">
-  <%= render @recipe %>
+<div class="mt-5 p-5">
+  <h1 class="text-center">
+    <%= @recipe.name %>
+  </h1>
   <% if can? :manage, @recipe %>
-    <%= button_to "Delete", @recipe, method: :delete, class:"btn btn-danger" %>
+    <%= form_with(model: @recipe) do |form| %>
+      <div class="custom-control custom-switch text-right p-3">
+        <h4>public</h4>
+        <%= form.check_box :public, onchange: "this.form.submit();", class: "custom-control-inputcustom-control-input", id:"flexSwitchCheckDefault"  %>
+      </div>
+    <% end %>
   <%end%>
 </div>
-<% if can? :manage, @recipe %>
-  <%= form_with(model: @recipe) do |form| %>
-    <div class="custom-control custom-switch">
-      <h4>chick the public box</h4>
-      <%= form.check_box :public, onchange: "this.form.submit();", class: "custom-control-inputcustom-control-input", id:"flexSwitchCheckDefault"  %>
-    </div>
-  <% end %>
-<%end%>
 <div class="table-wrapper">
-  <div class="flex justify-content-between">
+  <div class="d-flex justify-content-between py-2">
     <% if can? :manage, @recipe %>
-      <%= link_to "Generate shopping list", new_shopping_list_path,  class:"btn btn-success m-2 btn-sm"%>
-      <%= link_to "Add ingredint", "#{@recipe.id}/recipe_food/new",  class:"btn btn-success m-2 btn-sm"%>
+      <%= link_to "Generate shopping list", new_shopping_list_path,  class:"btn btn-success btn-sm"%>
+      <%= link_to "Add ingredint", "#{@recipe.id}/recipe_food/new",  class:"btn btn-success btn-sm"%>
     <%end%>
   </div>
   <table class="fl-table">
@@ -38,10 +35,10 @@
           <th> <%= food.name%> </th>
           <th> <%= food.recipe_foods.find_by(recipe_id: @recipe.id).quantity%> </th>
           <th> <%= food.price%> $</th>
-          <th>
+          <th class="d-flex justify-content-center">
             <% if can? :manage, @recipe %>
-              <%= button_to "Remove", recipe_recipe_food_path(recipe_id: @recipe.id, id: food.recipe_foods.find_by(recipe_id: @recipe.id).id), method: :delete , class:"btn btn-success btn-sm"%>
-              <%= link_to "Edit", edit_recipe_recipe_food_path(recipe_id: @recipe.id, id:food.id), class:"btn btn-success btn-sm"%></th>
+              <%= button_to "Remove", recipe_recipe_food_path(recipe_id: @recipe.id, id: food.recipe_foods.find_by(recipe_id: @recipe.id).id), method: :delete , class:"btn btn-success btn-sm mx-2"%>
+              <%= link_to "Edit", edit_recipe_recipe_food_path(recipe_id: @recipe.id, id:food.id), class:"btn btn-success btn-sm mx-2"%></th>
           <%end%>
         </tr>
       <%end%>
