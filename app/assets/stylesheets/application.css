@@ -137,7 +137,7 @@ h2 {
     width: 100%;
   }
 
-  .table-wrapper:before {
+  .table-wrapper::before {
     content: "Scroll horizontally >";
     display: block;
     text-align: right;
@@ -165,6 +165,11 @@ h2 {
     display: block;
   }
 
+  .fl-table thead th {
+    text-align: left;
+    border-bottom: 1px solid #f7f7f9;
+  }
+
   .fl-table thead th:last-child {
     border-bottom: none;
   }
@@ -179,20 +184,21 @@ h2 {
     overflow-x: auto;
   }
 
-  .fl-table thead th {
-    text-align: left;
-    border-bottom: 1px solid #f7f7f9;
-  }
-
   .fl-table tbody tr {
     display: table-cell;
   }
 
-  .fl-table tbody tr:nth-child(odd) {
-    background: none;
+  .fl-table tbody td {
+    display: block;
+    text-align: center;
   }
+
   .fl-table tr:nth-child(even) {
     background: transparent;
+  }
+
+  .fl-table tbody tr:nth-child(odd) {
+    background: none;
   }
 
   .fl-table tr td:nth-child(even) {
@@ -202,10 +208,5 @@ h2 {
   .fl-table tr td:nth-child(odd) {
     background: #f8f8f8;
     border-right: 1px solid #e6e4e4;
-  }
-
-  .fl-table tbody td {
-    display: block;
-    text-align: center;
   }
 }
