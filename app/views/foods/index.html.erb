@@ -1,0 +1,27 @@
+<br>
+<div class="table-wrapper">
+  <div class="text-right my-2">
+    <%= link_to "Add food", new_food_path, class:"btn btn-success add-food" %>
+  </div>
+  <table class="fl-table">
+    <thead>
+      <tr>
+        <th scope="col">food</th>
+        <th scope="col">measurement units</th>
+        <th scope="col">unit price</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @foods.each do |food| %>
+        <tr>
+          <%= render food %>
+          <td>
+            <%= button_to "Destroy", food, method: :delete ,class:"btn btn-danger m-2"%>
+          </td>
+        </tr>
+      <% end %>
+    </tr>
+  </tbody>
+</table>
+</div>

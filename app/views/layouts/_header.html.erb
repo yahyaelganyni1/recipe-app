@@ -1,0 +1,15 @@
+<%if user_signed_in?%>
+  <div class="topnav px-5">
+    <%= link_to 'Recipe App', root_url, class_name: "active"%>
+    <%=link_to 'my recipes', recipes_path%>
+    <%=link_to 'food', root_path %>
+    <%=link_to 'public recipes', public_recipes_path %>
+    <%=link_to 'shopping list',  shopping_lists_path%>
+    <%= link_to "Sign out", destroy_user_session_path,  data: {
+                            turbo_method: :delete
+                        }, class_name: 'nav-item' %>
+    <h4 class='nav-username'>
+      Hi <span> <%= current_user.name%> </span>
+    </h4>
+  </div>
+<%end%>

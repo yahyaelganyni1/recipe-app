@@ -1,0 +1,47 @@
+<div class="mt-5 p-5">
+  <h1 class="text-center">
+    <%= @recipe.name %>
+  </h1>
+  <% if can? :manage, @recipe %>
+    <%= form_with(model: @recipe) do |form| %>
+      <div class="custom-control custom-switch text-right p-3">
+        <h4>public</h4>
+        <%= form.check_box :public, onchange: "this.form.submit();", class: "custom-control-inputcustom-control-input", id:"flexSwitchCheckDefault"  %>
+      </div>
+    <% end %>
+  <%end%>
+</div>
+<div class="table-wrapper">
+  <div class="d-flex justify-content-between py-2">
+    <% if can? :manage, @recipe %>
+      <%= link_to "Generate shopping list", new_shopping_list_path,  class:"btn btn-success btn-sm"%>
+      <%= link_to "Add ingredint", "#{@recipe.id}/recipe_food/new",  class:"btn btn-success btn-sm"%>
+    <%end%>
+  </div>
+  <table class="fl-table">
+    <thead>
+      <tr>
+        <th scope="col">food</th>
+        <th scope="col">quantity </th>
+        <th scope="col">price</th>
+        <% if can? :manage, @recipe %>
+          <th scope="col">Action</th>
+        <%end%>
+      </tr>
+    </thead>
+    <tbody>
+      <% @recipe.foods.each do |food|%>
+        <tr>
+          <th> <%= food.name%> </th>
+          <th> <%= food.recipe_foods.find_by(recipe_id: @recipe.id).quantity%> </th>
+          <th> <%= food.price%> $</th>
+          <th class="d-flex justify-content-center">
+            <% if can? :manage, @recipe %>
+              <%= button_to "Remove", recipe_recipe_food_path(recipe_id: @recipe.id, id: food.recipe_foods.find_by(recipe_id: @recipe.id).id), method: :delete , class:"btn btn-success btn-sm mx-2"%>
+              <%= link_to "Edit", edit_recipe_recipe_food_path(recipe_id: @recipe.id, id:food.id), class:"btn btn-success btn-sm mx-2"%></th>
+          <%end%>
+        </tr>
+      <%end%>
+    </tbody>
+  </table>
+</div>
