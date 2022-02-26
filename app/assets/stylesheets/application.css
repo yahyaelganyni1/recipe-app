@@ -136,6 +136,7 @@ h2 {
     display: block;
     width: 100%;
   }
+
   .table-wrapper:before {
     content: "Scroll horizontally >";
     display: block;
@@ -144,6 +145,20 @@ h2 {
     color: white;
     padding: 0 0 10px;
   }
+
+  .fl-table td,
+  .fl-table th {
+    padding: 20px 0.625em 0.625em 0.625em;
+    height: 60px;
+    vertical-align: middle;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    overflow-y: auto;
+    width: 120px;
+    font-size: 13px;
+    text-overflow: ellipsis;
+  }
+
   .fl-table thead,
   .fl-table tbody,
   .fl-table thead th {
@@ -164,23 +179,11 @@ h2 {
     overflow-x: auto;
   }
 
-  .fl-table td,
-  .fl-table th {
-    padding: 20px 0.625em 0.625em 0.625em;
-    height: 60px;
-    vertical-align: middle;
-    box-sizing: border-box;
-    overflow-x: hidden;
-    overflow-y: auto;
-    width: 120px;
-    font-size: 13px;
-    text-overflow: ellipsis;
-  }
-
   .fl-table thead th {
     text-align: left;
     border-bottom: 1px solid #f7f7f9;
   }
+
   .fl-table tbody tr {
     display: table-cell;
   }
@@ -192,12 +195,12 @@ h2 {
     background: transparent;
   }
 
-  .fl-table tr td:nth-child(odd) {
-    background: #f8f8f8;
+  .fl-table tr td:nth-child(even) {
     border-right: 1px solid #e6e4e4;
   }
 
-  .fl-table tr td:nth-child(even) {
+  .fl-table tr td:nth-child(odd) {
+    background: #f8f8f8;
     border-right: 1px solid #e6e4e4;
   }
 
