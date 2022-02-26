@@ -1,0 +1,11 @@
+<h2>public recipes</h2>
+<% @all_recipes.each do |recipe| %>
+  <% if recipe.public %>
+    <div class="card my-5 pb-4">
+      <%= render recipe %>
+      <h4 class="text-center">By: <%= User.find(recipe.user_id).name %></h4>
+      <h4 class='px-5' > total food:  <%=@items_count%></h4>
+      <h4 class='px-5'> total price: <%=@total_amount%> $</h4>
+    </div>
+  <% end %>
+<% end %>

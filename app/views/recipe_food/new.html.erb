@@ -1,0 +1,7 @@
+<%= form_tag("/recipes/#{params[:recipe_id]}/recipe_food", method: "post") do %>
+  <%= label_tag(:quantity) %>
+  <%= number_field_tag(:quantity) %>
+  <%= label_tag(:food) %>
+  <%= select_tag "recipe_food[food_id]", options_from_collection_for_select(Food.all, "id", "name")%>
+  <%= submit_tag("Add") %>
+<% end %>
