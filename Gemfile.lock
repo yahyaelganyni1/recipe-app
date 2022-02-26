@@ -82,6 +82,9 @@ GEM
       autoprefixer-rails (>= 5.2.1)
       sassc (>= 2.0.0)
     builder (3.2.4)
+    bullet (7.0.1)
+      activesupport (>= 3.0.0)
+      uniform_notifier (~> 1.11)
     cancancan (3.3.0)
     capybara (3.36.0)
       addressable
@@ -230,6 +233,7 @@ GEM
       railties (>= 6.0.0)
     tzinfo (2.0.4)
       concurrent-ruby (~> 1.0)
+    uniform_notifier (1.14.2)
     warden (1.2.9)
       rack (>= 2.0.9)
     web-console (4.2.0)
@@ -255,6 +259,7 @@ DEPENDENCIES
   bootsnap
   bootstrap (~> 4.3.1)
   bootstrap-sass
+  bullet
   cancancan
   capybara
   debug
